@@ -1,0 +1,77 @@
+.search-container {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  .search-box {
+    width: 75%;
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid #f2f2f2;
+    outline: none;
+    transition: all 0.5s;
+    &:focus-visible {
+      border-bottom: 2px solid #1976d2;
+    }
+  }
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  .item {
+    width: 25%;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px 8px;
+    margin: 8px;
+    box-shadow: 0 0 10px #f2f2f2;
+  }
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border-color: transparent;
+  border-width: 5px;
+  border-style: solid;
+  //   border-bottom: 10px solid black;
+  animation: rotate 2s ease infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    border-left-color: #1976d2;
+    border-top-color: #1976d2;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-bottom-color: #1976d2;
+    border-right-color: #1976d2;
+  }
+}
+
+.paginationContainer {
+  width: 100%;
+  text-align: right;
+  margin: 10vw;
+  margin-top: 40px;
+}
+.pageBtn {
+  margin: 1px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #f7f7f7;
+}
+.active {
+  background-color: #1976d2;
+  color: white;
+}

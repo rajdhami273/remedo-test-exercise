@@ -1,0 +1,41 @@
+<div class="search-container">
+  <input
+    class="search-box"
+    placeholder="Search here..."
+    (input)="debounce()"
+    [formControl]="searchTitle"
+  />
+</div>
+<div class="list">
+  <ng-container *ngIf="!loading; else loader">
+    <ng-container *ngIf="users.length; else noUsers">
+      <div class="item" *ngFor="let user of getUsersList(); let index = index">
+        <p><b>ID:</b> {{ user.id }}</p>
+        <p><b>USERID:</b> {{ user.userId }}</p>
+        <p><b>TITLE:</b> {{ user.title }}</p>
+      </div>
+      <!-- <br />
+      <hr /> -->
+      <span class="paginationContainer">
+        <button class="pageBtn" (click)="changePage(-1)"><</button>
+        <button
+          class="pageBtn"
+          [class.active]="num == currentPage"
+          (click)="setPage(num)"
+          *ngFor="let num of getPaginationBarNumbers()"
+        >
+          {{ num }}
+        </button>
+        <button class="pageBtn" (click)="changePage(1)">></button>
+      </span>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #noUsers>
+  <p>No users found</p>
+</ng-template>
+
+<ng-template #loader>
+  <span class="loader"></span>
+</ng-template>
